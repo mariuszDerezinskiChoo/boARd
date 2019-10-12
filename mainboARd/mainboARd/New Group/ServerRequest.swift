@@ -10,7 +10,7 @@ import Foundation
 enum ServerError:Error{
     case responseProblem
     case decodingProblem
-    case otherProblem
+    case encodingProblem
 }
 
 struct ServerRequest {
@@ -28,8 +28,22 @@ struct ServerRequest {
             urlRequest.httpBody = try JSONEncoder().encode(messagetoSave)
             
             let dataTask = URLSession.shared.dataTask(with: urlRequest){data, response, _ in
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let
+                    jsonData = data else {
+                        completion(.failure(.responseProblem))
+                        return
+                }
                 
+                do {
+                    let messageData = try JSONDecoder().decode(Message.self, from: jsonData)
+                    completion(.success(messageData))
+                } catch{
+                    completion(.failure(.decodingProblem))
+                }
             }
+            dataTask.resume()
+        }catch{
+            completion(.failure(.encodingProblem))
         }
     }
     
