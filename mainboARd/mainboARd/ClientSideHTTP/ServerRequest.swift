@@ -16,36 +16,33 @@ enum ServerError:Error{
 struct ServerRequest {
     let resourceURL : URL
     init(endpoint: String) {
-        let resourceString = "http://board1331.herokuapp.com/"
+        let resourceString = "http://board1331.herokuapp.com/" + endpoint
         guard let resourceURL = URL(string: resourceString)else {fatalError()}
         self.resourceURL = resourceURL
     }
-    func save(_ messagetoSave: Message, completion: @escaping(Result<Message, ServerError>) -> Void) {
+}
+func POST(message: Message, serverReq: ServerRequest) -> String {
+        var messageData = ""
         do{
-            var urlRequest = URLRequest(url: resourceURL)
+            var urlRequest = URLRequest(url: serverReq.resourceURL)
             urlRequest.httpMethod = "POST"
             urlRequest.addValue("application/json",forHTTPHeaderField: "Content-Type")
-            urlRequest.httpBody = try JSONEncoder().encode(messagetoSave)
-            
+            urlRequest.httpBody = try JSONEncoder().encode(message)
+
             let dataTask = URLSession.shared.dataTask(with: urlRequest){data, response, _ in
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let
                     jsonData = data else {
-                        completion(.failure(.responseProblem))
                         return
                 }
                 
                 do {
-                    let messageData = try JSONDecoder().decode(Message.self, from: jsonData)
-                    completion(.success(messageData))
+                    messageData = try JSONDecoder().decode(Message.self, from: jsonData).message
                 } catch{
-                    completion(.failure(.decodingProblem))
                 }
             }
             dataTask.resume()
         }catch{
-            completion(.failure(.encodingProblem))
-        }
     }
-    
-    
+    return messageData
 }
+

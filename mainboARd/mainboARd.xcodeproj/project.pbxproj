@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F63CBF223524830008EF7D2 /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63CBF123524830008EF7D2 /* ServerRequest.swift */; };
 		6F63CBF423524E50008EF7D2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63CBF323524E50008EF7D2 /* Message.swift */; };
+		6F63CBF62352506B008EF7D2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63CBF52352506B008EF7D2 /* Post.swift */; };
 		AD8E8D0623522F760030F7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E8D0523522F760030F7E9 /* AppDelegate.swift */; };
 		AD8E8D0823522F760030F7E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E8D0723522F760030F7E9 /* SceneDelegate.swift */; };
 		AD8E8D0B23522F760030F7E9 /* mainboARd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD8E8D0923522F760030F7E9 /* mainboARd.xcdatamodeld */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		6F63CBF123524830008EF7D2 /* ServerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 		6F63CBF323524E50008EF7D2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		6F63CBF52352506B008EF7D2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		AD8E8D0223522F760030F7E9 /* mainboARd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mainboARd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8E8D0523522F760030F7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD8E8D0723522F760030F7E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,13 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6F63CBF02352366D008EF7D2 /* New Group */ = {
+		6F63CBF02352366D008EF7D2 /* ClientSideHTTP */ = {
 			isa = PBXGroup;
 			children = (
 				6F63CBF123524830008EF7D2 /* ServerRequest.swift */,
 				6F63CBF323524E50008EF7D2 /* Message.swift */,
+				6F63CBF52352506B008EF7D2 /* Post.swift */,
 			);
-			path = "New Group";
+			path = ClientSideHTTP;
 			sourceTree = "<group>";
 		};
 		AD8E8CF923522F760030F7E9 = {
@@ -114,7 +117,7 @@
 		AD8E8D0423522F760030F7E9 /* mainboARd */ = {
 			isa = PBXGroup;
 			children = (
-				6F63CBF02352366D008EF7D2 /* New Group */,
+				6F63CBF02352366D008EF7D2 /* ClientSideHTTP */,
 				AD8E8D0523522F760030F7E9 /* AppDelegate.swift */,
 				AD8E8D0723522F760030F7E9 /* SceneDelegate.swift */,
 				AD8E8D0C23522F760030F7E9 /* ContentView.swift */,
@@ -289,6 +292,7 @@
 				AD8E8D0B23522F760030F7E9 /* mainboARd.xcdatamodeld in Sources */,
 				6F63CBF423524E50008EF7D2 /* Message.swift in Sources */,
 				AD8E8D0D23522F760030F7E9 /* ContentView.swift in Sources */,
+				6F63CBF62352506B008EF7D2 /* Post.swift in Sources */,
 				AD8E8D0823522F760030F7E9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
